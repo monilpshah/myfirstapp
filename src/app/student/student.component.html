@@ -1,0 +1,62 @@
+<div class="container">
+  <h1> ADD DETAILS IN STUDENT TABLE</h1>
+   <br>
+   <div class="form-group">
+   Roll NO.<input [(ngModel)]="Rollno" class="form-control">
+   </div>
+
+   <div class="form-group">
+   Name<input [(ngModel)]="Name" class="form-control">
+   </div>
+
+   <div class="form-group">
+     Mobile Number<input  [(ngModel)]="Mobileno" class="form-control">
+   </div>
+
+   <div class="form-group"  >
+
+    Gender<div class="container  form-control"><input type="radio" [(ngModel)]="Gender" value="Male">Male
+    <input type="radio" [(ngModel)]="Gender" value="Female">Female</div>
+   </div>
+
+   <div class="form-group">
+     city<input  [(ngModel)]="City" class="form-control">
+   </div>
+
+   <div class="form-group">
+     Fees<input  [(ngModel)]="Fee" class="form-control">
+   </div>
+
+   <div class="form-group">
+     <button (click)= "onAdd()" class="form-control" >ADD ME</button>
+   </div>
+   </div>
+
+
+   <div class="container">
+     <h1>DETAILS  OF STUDENT TABLE</h1>
+   <table border=2 class="table">
+     <tr>
+       <th>Roll NO.</th>
+       <th>Name</th>
+       <th>Mobile Number</th>
+       <th>Gender</th>
+       <th>City.</th>
+       <th>Fees</th>
+       <th>Action</th>
+     </tr>
+
+     <tr   *ngFor="let student of parr,let i=index">
+      <td>{{student.Rollno}}</td>
+      <td>{{student.Name}}</td>
+      <td>{{student.Mobileno}}</td>
+      <td>{{student.Gender}}</td>
+      <td>{{student.City}}</td>
+      <td>{{student.Fee}}</td>
+      <td>
+          <button (click)="onDelete(student)" class="glyphicon glyphicon-trash"></button>
+
+          <button (click)="onEdit(student)" class="glyphicon glyphicon-pencil"></button>
+      </tr>
+   </table>
+   </div>

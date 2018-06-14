@@ -1,0 +1,22 @@
+<div  class="container">
+    <h1>Edit Category    </h1>
+
+                    <div class="form-group">
+                    Category Id<input [(ngModel)]="Id" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                    Category Name<input [(ngModel)]="Name" class="form-control">
+                    </div>
+
+                    <div class="form-group"  >
+
+                      Is Active<div class="container  form-control"><input type="radio" [(ngModel)]="IsActive" value="yes">Yes
+                      <input type="radio" [(ngModel)]="IsActive" value="no">No</div>
+                     </div>
+
+                     <div class="form-group">
+                      <button (click)= "onSave()" class="form-control">   SAVE ME  </button>
+                    </div>
+
+    </div>

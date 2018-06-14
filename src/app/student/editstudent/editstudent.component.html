@@ -1,0 +1,33 @@
+<div class="container">
+  <h1> Edit  DETAILS IN STUDENT TABLE</h1>
+   <br>
+   <div class="form-group">
+   Roll NO.<input [(ngModel)]="Rollno" class="form-control">
+   </div>
+
+   <div class="form-group">
+   Name<input [(ngModel)]="Name" class="form-control">
+   </div>
+
+   <div class="form-group">
+     Mobile Number<input  [(ngModel)]="Mobileno" class="form-control">
+   </div>
+
+   <div class="form-group"  >
+
+    Gender<div class="container  form-control"><input type="radio" [(ngModel)]="Gender" value="Male">Male
+    <input type="radio" [(ngModel)]="Gender" value="Female">Female</div>
+   </div>
+
+   <div class="form-group">
+     city<input  [(ngModel)]="City" class="form-control">
+   </div>
+
+   <div class="form-group">
+     Fees<input  [(ngModel)]="Fee" class="form-control">
+   </div>
+
+   <div class="form-group">
+     <button (click)= "onSave()" class="form-control" >Save ME</button>
+   </div>
+   </div>

@@ -1,0 +1,23 @@
+<div class="form-group">
+  ID
+<input [(ngModel)]="Id" type="number" class="form-control"><br>
+</div>
+
+<div class="form-group">
+TITLE
+<input [(ngModel)]="Title" type="text" class="form-control"><br>
+</div>
+
+<div class="form-group">
+STATUS
+<select [(ngModel)]="Status" class="form-control">
+  <option>done</option>
+  <option>pending</option>
+</select>
+</div>
+
+<div class="form-group">
+<br>
+<button (click)="onSave()" class="form-control">ADD ME</button>
+</div>
+
