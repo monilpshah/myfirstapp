@@ -17,10 +17,9 @@ export class ProductService {
       return this._http.get(this.url);
   }
 
-  addProuct(item:product){
-    let body=JSON.stringify(item);
-    let head1=new HttpHeaders().set('Content-Type','application/json');
-    return this._http.post(this.url,body,{headers:head1});
+  addProuct(item){
+
+    return this._http.post(this.url,item);
   }
 
   deleteProduct(item:product){

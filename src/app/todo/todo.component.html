@@ -25,27 +25,53 @@
 </div>
 
 
+<!-- material -->
 
-<div class="container">
-<table border=2 class="table">
-  <tr>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Status</th>
-    <th>Action</th>
-  </tr>
 
-  <tr   *ngFor="let item of arr,let i=index">
-    <td>{{item.Id}}</td>
-    <td>{{item.Title}}</td>
-    <td>{{item.Status}}</td>
+<!-- Filter -->
+<mat-form-field style="width: 50%;">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
 
-    <td>
-      <button (click)="onDelete(item)">Delete</button>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" >
 
-      <button (click)="onEdit(item)">Update</button>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="Action">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <input type="checkbox" (click)="oncheckchange(element)">
     </td>
-    </tr>
+  </ng-container>
 
+
+  <ng-container matColumnDef="Id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+    <td mat-cell *matCellDef="let element"> {{element.Title}} </td>
+  </ng-container>
+
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-</div>
+
+<mat-paginator [length]="4"
+              [pageSize]="1"
+              [pageSizeOptions]="[1,2,3,4]">
+</mat-paginator>
+
+<button (click)="deleteAll()" class="form-control">Delete All</button>
+

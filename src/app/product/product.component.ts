@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { product} from './product';
 import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
+import { SihlloginService } from '../sihl/sihllogin.service';
 
 
 @Component({
@@ -11,9 +12,10 @@ import { Router } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private _xyz:ProductService,private _route:Router) { }
+  constructor(private _xyz:ProductService,private _route:Router,private _s:SihlloginService) { }
 
   ngOnInit() {
+
     this._xyz.getAllProducts().subscribe(
       (data:product[])=>{
         this.parr=data;
@@ -24,23 +26,36 @@ export class ProductComponent implements OnInit {
   Id:number;
   Name:string="";
   Price:number;
-  Image:string="../../assets/images/Chrysanthemum.jpg";
+  Image:string="";
   Mfg:string="";
   Soh:number;
   flag:boolean=false;
   upadateno;
-
+  selectedFile:File=null;
   parr:product[]=[
 
   ]
 
   onAdd(){
-    this._xyz.addProuct(new product(this.Id,this.Name,this.Price,this.Image,this.Mfg,this.Soh)).subscribe(
+    const fd=new FormData();
+    fd.append('Id',this.Id.toString());
+    fd.append('Name',this.Name);
+    fd.append('Price',this.Price.toString());
+    fd.append('image',this.selectedFile,this.selectedFile.name);
+    fd.append('Mfg',this.Mfg);
+    fd.append('Soh',this.Soh.toString());
+    this._xyz.addProuct(fd).subscribe(
       (data:any)=>{
         this.parr.push(new product(this.Id,this.Name,this.Price,this.Image,this.Mfg,this.Soh));
+        console.log(data);
       }
     );
 
+  }
+
+  onChange(value)
+  {
+    this.selectedFile=<File>value.target.files[0];
   }
 
   onEdit(item){

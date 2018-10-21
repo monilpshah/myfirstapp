@@ -50,8 +50,6 @@ onAdd(){
     );
 
     alert("data has been added");
-
-
 }
 onEdit(item){
   this._route.navigate(['/editstudent',item.Rollno]);

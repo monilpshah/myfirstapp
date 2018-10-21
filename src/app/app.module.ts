@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule  } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { routing } from './app.routing';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule,MatInputModule,MatSortModule, MatCardModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
@@ -16,6 +19,9 @@ import { EdittodoComponent } from './todo/edittodo/edittodo.component';
 import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { EditstudentComponent } from './student/editstudent/editstudent.component';
 import { EditcategoryComponent } from './category/editcategory/editcategory.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SihlComponent } from './sihl/sihl.component';
+
 
 @NgModule({
   declarations: [
@@ -30,13 +36,21 @@ import { EditcategoryComponent } from './category/editcategory/editcategory.comp
     EdittodoComponent,
     EditproductComponent,
     EditstudentComponent,
-    EditcategoryComponent
+    EditcategoryComponent,
+    SihlComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    routing
+    routing,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatInputModule,
+  MatFormFieldModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
