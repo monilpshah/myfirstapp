@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
+i:number;
   Id:number;
   Name:string="";
    flag:boolean=false;
